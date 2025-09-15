@@ -6,9 +6,26 @@ You will use two tools:
 - **curl** (command line)
 - **REST Client** extension in **Visual Studio Code**
 
----
-## About JSONPlaceholder
 
+## Introduction to curl and REST Client
+### What is curl?
+- **curl** is a command-line tool for making network requests.  
+- It supports many protocols (HTTP, HTTPS, FTP, etc.), but we’ll use it mainly for **HTTP APIs**.  
+- It’s fast, lightweight, and available on almost all systems.  
+- Perfect for practicing and automating API requests directly from the terminal.
+
+**Example:**
+```bash
+curl https://jsonplaceholder.typicode.com/posts/1
+```
+This fetches data for the post with `ID` `1` and prints it in the terminal.
+
+### What is the REST Client (VS Code Extension)?
+- A Visual Studio Code extension that lets you send HTTP requests right from your editor.
+- Requests are written in plain text files (.http), making them easy to save, share, and reuse.
+- Responses show up in a side panel in VS Code, with support for JSON formatting and syntax highlighting.
+- Great for who prefer a GUI-like experience inside VS Code rather than the terminal.
+## About JSONPlaceholder
 For this lab, we will use [JSONPlaceholder](https://jsonplaceholder.typicode.com/), a **free online fake REST API** for practice.
 
 ### What is JSONPlaceholder?
@@ -39,7 +56,18 @@ Response:
 
 Think of JSONPlaceholder as a **playground for APIs**, like a driving simulator for programmers. You can practice making requests without worrying about breaking anything.
 
+## How Requests and Responses Work
+```
++-----------+         HTTP Request          +-------------------+
+|           |  ------------------------->   |                   |
+|   Client  |                               |       Server      |
+| (curl or  |   <-------------------------  | (JSONPlaceholder) |
+| REST API) |         HTTP Response         |                   |
++-----------+                               +-------------------+
+
+```
 ---
+
 
 ## 1. Prerequisites
 
