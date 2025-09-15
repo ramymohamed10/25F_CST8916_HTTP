@@ -185,3 +185,67 @@ By completing this activity, you’ve learned:
 - How HTTP request/response works
 - How to send requests with different methods
 - How to observe status codes, headers, and bodies
+
+
+---
+
+## Sending Requests Programmatically
+
+So far, you’ve learned how to send HTTP requests using **curl** and the **REST Client extension**.  
+But in real-world projects, developers usually send requests **programmatically** from inside their code.
+
+### Why Send Requests in Code?
+- To **integrate with APIs** (e.g., weather data, payment services, social media).  
+- To **automate tasks** (e.g., fetching data every hour).  
+- To **connect different applications** (e.g., your app talking to a database or external service).  
+
+---
+
+### Example in JavaScript (using `fetch`)
+```javascript
+// Fetch a post from JSONPlaceholder
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+```
+
+### Example in Python (using requests)
+```python
+import requests
+
+# Fetch a post from JSONPlaceholder
+response = requests.get("https://jsonplaceholder.typicode.com/posts/1")
+
+if response.status_code == 200:
+    data = response.json()
+    print(data)
+else:
+    print("Request failed:", response.status_code)
+```
+These code snippets do the same thing as the `curl` or `REST Client` examples: 
+- they send an HTTP `GET` request and print the response.
+- But here, you can use the data in your program, not just view it.
+
+---
+
+## When to Use curl, REST Client, or Code?
+
+Each tool has its own strengths. Here’s a quick guide:
+
+| Tool            | Best For | Pros | Cons |
+|-----------------|----------|------|------|
+| **curl**        | Quick testing in the terminal | Fast, works everywhere, good for automation in shell scripts | Harder to read/write for complex requests |
+| **REST Client** | Learning & manual testing inside VS Code | Easy to use, readable request files, nice formatted responses | Only works inside VS Code |
+| **Code (Python/JS/etc.)** | Building real applications | Can reuse data in programs, automate workflows, connect APIs | Requires coding knowledge, more setup |
+
+---
+
+Think of it like this:  
+- **curl** → Quick, command-line experiments  
+- **REST Client** → Beginner-friendly exploration inside VS Code  
+- **Programming** → Real apps where your code actually *uses* the data
